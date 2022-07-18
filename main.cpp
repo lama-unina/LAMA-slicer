@@ -2,7 +2,13 @@
 // Created by LAMA-unina
 //
 
-int main(){
+#include <QApplication>
+#include <QPushButton>
 
-    return 0;
+int main(int argc, char *argv[]){
+    QApplication a(argc, argv);
+    QPushButton button("test", nullptr);
+    button.resize(100, 50);
+    button.show();
+    return QApplication::exec();
 }

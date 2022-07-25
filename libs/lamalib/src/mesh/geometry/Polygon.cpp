@@ -15,33 +15,39 @@ namespace Lamalib::Mesh::Geometry {
         double cosAngle = cos(angle);   //radiant
 
         for(int i = 0; i<numberOfLines; i++){
-            points[i].x = ( double ) round( cosAngle * points[i].x - sinAngle * points[i].y );
-            points[i].y = ( double ) round( sinAngle * points[i].x + cosAngle * points[i].y );
+            points[i].x = static_cast<double>( round( cosAngle * points[i].x - sinAngle * points[i].y ) );
+            points[i].y = static_cast<double>( round( sinAngle * points[i].x + cosAngle * points[i].y ) );
             //z ???
         }
     }
 
     void Polygon::scale(double coeff) {
         for (int i = 0; i < numberOfLines; ++i) {
-            points[i].x/=coeff;
-            points[i].y/=coeff;
-            points[i].z/=coeff;
+            points[i].x /= coeff;
+            points[i].y /= coeff;
+            points[i].z /= coeff;
         }
     }
 
     void Polygon::translate(const Point &p) {
         for (int i = 0; i < numberOfLines; ++i) {
-            points[i].x+=p.x;
-            points[i].y+=p.y;
-            points[i].z+=p.z;
+            points[i].x += p.x;
+            points[i].y += p.y;
+            points[i].z += p.z;
         }
     }
 
     void Polygon::unscale(double coeff) {
         for (int i = 0; i < numberOfLines; ++i) {
-            points[i].x*=coeff;
-            points[i].y*=coeff;
-            points[i].z*=coeff;
+            points[i].x *= coeff;
+            points[i].y *= coeff;
+            points[i].z *= coeff;
         }
     }
+
+    Point *Polygon::getVertices() {
+        return points;
+    }
+
+
 }

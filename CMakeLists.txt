@@ -16,15 +16,17 @@ find_package(Qt6 REQUIRED COMPONENTS
 
 qt_standard_project_setup()
 
-add_executable(LAMA-slicer main.cpp libs/admesh/src/admesh.c
-                                    libs/admesh/src/connect.c
-                                    libs/admesh/src/normals.c
-                                    libs/admesh/src/portable_endian.h
-                                    libs/admesh/src/shared.c
-                                    libs/admesh/src/stl.h
-                                    libs/admesh/src/stl_io.c
-                                    libs/admesh/src/stlinit.c
-                                    libs/admesh/src/util.c
+add_subdirectory(libs)
+
+add_executable(LAMA-slicer src/main.cpp libs/lamalib/src/mesh/admesh/admesh.c
+        libs/lamalib/src/mesh/admesh/connect.c
+        libs/lamalib/src/mesh/admesh/normals.c
+        libs/lamalib/src/mesh/admesh/portable_endian.h
+        libs/lamalib/src/mesh/admesh/shared.c
+        libs/lamalib/src/mesh/admesh/stl.h
+        libs/lamalib/src/mesh/admesh/stl_io.c
+        libs/lamalib/src/mesh/admesh/stlinit.c
+        libs/lamalib/src/mesh/admesh/util.c
                                     libs/lamalib/lamalib.h
                                     libs/lamalib/src/mesh/TriangleMesh.h
                                     libs/lamalib/src/slicer/MeshSlicer.h
@@ -33,9 +35,10 @@ add_executable(LAMA-slicer main.cpp libs/admesh/src/admesh.c
                                     libs/lamalib/src/mesh/geometry/Line.h
                                     libs/lamalib/src/mesh/geometry/Multipoint.h
                                     libs/lamalib/src/mesh/geometry/Polygon.h
-        libs/lamalib/src/mesh/geometry/Line.cpp libs/lamalib/src/mesh/geometry/Polygon.cpp libs/lamalib/src/mesh/geometry/Multipoint.cpp)
+        libs/lamalib/src/mesh/geometry/Line.cpp libs/lamalib/src/mesh/geometry/Polygon.cpp libs/lamalib/src/mesh/geometry/Multipoint.cpp libs/lamalib/src/mesh/TriangleMesh.cpp libs/lamalib/test/test.cpp)
 
 target_link_libraries(LAMA-slicer PRIVATE
         Qt6::Core
         Qt::Gui
-        Qt::Widgets)
+        Qt::Widgets
+        Lamalib)

@@ -17,6 +17,7 @@ namespace Lamalib::Mesh::Geometry{
     public:
         explicit Multipoint(int n = 3);
         ~Multipoint();
+
         virtual void rotate(double angle) = 0;
         virtual void scale(double coeff) = 0;
         virtual void unscale(double coeff) = 0;

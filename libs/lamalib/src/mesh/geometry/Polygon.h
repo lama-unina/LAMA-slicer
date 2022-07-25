@@ -13,7 +13,9 @@ namespace Lamalib::Mesh::Geometry {
     public:
         explicit Polygon( int numOfLines = 3 ) : Multipoint(numOfLines){};        //basic Polygon as a triangle
         explicit Polygon( Point* arr, int numOfLines = 3 );
-        void rotate( double angle ) override;
+
+        Point* getVertices();
+        void rotate(double angle ) override;
         void scale( double coeff ) override;
         void unscale( double coeff ) override;
         void translate( const Point& p ) override;

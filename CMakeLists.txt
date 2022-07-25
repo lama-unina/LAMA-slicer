@@ -16,7 +16,21 @@ find_package(Qt6 REQUIRED COMPONENTS
 
 qt_standard_project_setup()
 
-add_executable(LAMA-slicer main.cpp )
+add_executable(LAMA-slicer main.cpp libs/admesh/src/admesh.c
+                                    libs/admesh/src/connect.c
+                                    libs/admesh/src/normals.c
+                                    libs/admesh/src/portable_endian.h
+                                    libs/admesh/src/shared.c
+                                    libs/admesh/src/stl.h
+                                    libs/admesh/src/stl_io.c
+                                    libs/admesh/src/stlinit.c
+                                    libs/admesh/src/util.c
+                                    libs/lamalib/lamalib.h
+                                    libs/lamalib/include/mesh/TriangleMesh.h
+                                    libs/lamalib/include/slicer/MeshSlicer.h
+                                    libs/lamalib/include/parser/StlPaser.h
+                                    libs/lamalib/include/mesh/geometry/Point.h
+                                    libs/lamalib/include/mesh/geometry/Line.h libs/lamalib/include/mesh/geometry/Multipoint.h libs/lamalib/include/mesh/geometry/Polygon.h)
 
 target_link_libraries(LAMA-slicer PRIVATE
         Qt6::Core

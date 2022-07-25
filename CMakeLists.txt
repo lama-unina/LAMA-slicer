@@ -26,11 +26,14 @@ add_executable(LAMA-slicer main.cpp libs/admesh/src/admesh.c
                                     libs/admesh/src/stlinit.c
                                     libs/admesh/src/util.c
                                     libs/lamalib/lamalib.h
-        libs/lamalib/src/mesh/TriangleMesh.h
-        libs/lamalib/src/slicer/MeshSlicer.h
-        libs/lamalib/src/parser/StlPaser.h
-        libs/lamalib/src/mesh/geometry/Point.h
-        libs/lamalib/src/mesh/geometry/Line.h libs/lamalib/src/mesh/geometry/Multipoint.h libs/lamalib/src/mesh/geometry/Polygon.h)
+                                    libs/lamalib/src/mesh/TriangleMesh.h
+                                    libs/lamalib/src/slicer/MeshSlicer.h
+                                    libs/lamalib/src/parser/StlPaser.h
+                                    libs/lamalib/src/mesh/geometry/Point.h
+                                    libs/lamalib/src/mesh/geometry/Line.h
+                                    libs/lamalib/src/mesh/geometry/Multipoint.h
+                                    libs/lamalib/src/mesh/geometry/Polygon.h
+        )
 
 target_link_libraries(LAMA-slicer PRIVATE
         Qt6::Core

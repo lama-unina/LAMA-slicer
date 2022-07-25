@@ -12,15 +12,15 @@
 namespace Lamalib::Mesh::Geometry{
     class Multipoint{
     protected:
-        std::vector<Point> points;
+        int numberOfLines;
+        Point* points;
     public:
-        Multipoint();
+        explicit Multipoint(int n = 3);
         ~Multipoint();
-
-        virtual void rotate() = 0;
-        virtual void scale() = 0;
-        virtual void translate() = 0;
-        virtual void reverse() = 0;
+        virtual void rotate(double angle) = 0;
+        virtual void scale(double coeff) = 0;
+        virtual void unscale(double coeff) = 0;
+        virtual void translate(const Point& p) = 0;
     };
 }
 

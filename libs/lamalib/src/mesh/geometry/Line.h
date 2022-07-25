@@ -13,9 +13,14 @@ namespace Lamalib::Mesh::Geometry{
         Point vertices[2];
     public:
         Line(Point a, Point b);
-        ~Line();
 
-        void planeIntersection(double z);
+        ~Line() = default;
+
+        Point planeIntersection(double z);
+
+        double length();
+
+        Point midpoint();
 
     };
 }

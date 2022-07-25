@@ -6,13 +6,12 @@
 #define POINT_H
 namespace Lamalib::Mesh::Geometry{
     class Point{
-    private:
+    public:
         double x;
         double y;
         double z;
-    public:
-        Point(double x=0, double y=0, double z=0); //default point : origin
-        ~Point();
+        explicit Point(double x=0, double y=0, double z=0): x(x), y(y),z(z){}; //default point : origin
+        ~Point() = default;
     };
 }
 #endif
